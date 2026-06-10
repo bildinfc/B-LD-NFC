@@ -63,7 +63,6 @@
             gap: 15px;
         }
 
-        /* Yeni logo resmi için eklenen siber stil */
         .site-logo-img {
             height: 55px;
             width: auto;
@@ -85,17 +84,19 @@
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-btn {
             color: #ffffff;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            padding: 8px 24px;
+            padding: 8px 20px;
             border-radius: 30px;
             background: rgba(0, 102, 255, 0.1);
             border: 1px solid rgba(0, 102, 255, 0.4);
@@ -127,11 +128,11 @@
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         /* ==========================================
-           DEVAASA OYUNCU KARTLARI
+           DEVAASA KARTLAR (OYUNCU & TEKNİK EKİP)
            ========================================== */
         .grid-container {
             display: grid;
@@ -184,6 +185,7 @@
             align-items: center;
             transition: background 0.4s;
             padding: 20px;
+            text-align: center;
         }
 
         .card.active {
@@ -214,7 +216,17 @@
             transition: all 0.3s;
         }
 
-        .card.active .player-number {
+        /* Teknik ekipteki büyük harf sembolleri için */
+        .staff-icon {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #00ffcc;
+            line-height: 1;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+        }
+
+        .card.active .player-number, .card.active .staff-icon {
             background: linear-gradient(180deg, #00ffcc 0%, #0066ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -222,12 +234,13 @@
         }
 
         .player-name {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 12px;
+            line-height: 1.2;
         }
 
         .player-badge {
@@ -240,6 +253,16 @@
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+        }
+
+        /* Teknik Ekip Rozet Rengi */
+        .staff-badge {
+            color: #ff00ff;
+            border-color: rgba(255, 0, 255, 0.4);
+            background: rgba(255, 0, 255, 0.05);
+        }
+        .card.active .staff-badge {
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
         }
 
         /* ==========================================
@@ -400,7 +423,7 @@
             .logo-text { font-size: 20px; }
             .grid-container { grid-template-columns: 1fr; }
             .card { height: 280px; }
-            .player-name { font-size: 1.6rem; }
+            .player-name { font-size: 1.5rem; }
             .kit-wrapper { gap: 20px; }
             .kit-box { min-width: 100%; }
             .kit-display { height: 300px; }
@@ -416,6 +439,7 @@
         </a>
         <div class="nav-links">
             <a href="#kadro" class="nav-btn">Kadromuz</a>
+            <a href="#teknik-ekip" class="nav-btn">Teknik Ekibimiz</a>
             <a href="#forma" class="nav-btn">Formamız</a>
         </div>
     </nav>
@@ -428,7 +452,7 @@
                 <div class="card-inner">
                     <div class="player-number">01</div>
                     <div class="player-name">İshakso</div>
-                    <div class="player-badge">Beli Dönmeyen Kaleci</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -436,7 +460,7 @@
                 <div class="card-inner">
                     <div class="player-number">03</div>
                     <div class="player-name">Emin</div>
-                    <div class="player-badge">Forvet</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -444,7 +468,7 @@
                 <div class="card-inner">
                     <div class="player-number">05</div>
                     <div class="player-name">Emirhan</div>
-                    <div class="player-badge">Forvet</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -452,7 +476,7 @@
                 <div class="card-inner">
                     <div class="player-number">09</div>
                     <div class="player-name">Eray</div>
-                    <div class="player-badge">Forvet</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -460,7 +484,7 @@
                 <div class="card-inner">
                     <div class="player-number">10</div>
                     <div class="player-name">İhsan</div>
-                    <div class="player-badge">Engelli Stoper</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -468,12 +492,43 @@
                 <div class="card-inner">
                     <div class="player-number">22</div>
                     <div class="player-name">Altay</div>
-                    <div class="player-badge">Orta Saha</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
         </div>
     </main>
+
+    <section class="container" id="teknik-ekip">
+        <h2 class="section-title">TEKNİK EKİBİMİZ</h2>
+        <div class="grid-container">
+            
+            <div class="card">
+                <div class="card-inner">
+                    <div class="staff-icon">👑</div>
+                    <div class="player-name">Ömer Can Öztürk</div>
+                    <div class="player-badge staff-badge">Başkan</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="staff-icon">📋</div>
+                    <div class="player-name">Enver Sağlam</div>
+                    <div class="player-badge staff-badge">Teknik Direktör</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="staff-icon">🤝</div>
+                    <div class="player-name">Alper Caber</div>
+                    <div class="player-badge staff-badge">Teknik Yardımcı</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <section class="container" id="forma">
         <h2 class="section-title">FORMAMIZ</h2>
@@ -484,7 +539,7 @@
                     <div class="kit-display">
                         <img src="https://i.hizliresim.com/2gg7fvo.jpg" alt="Bildin FC Forma Ön" class="kit-img">
                     </div>
-                    <div class="kit-text"> <span class="accent">ÖN</span></div>
+                    <div class="kit-text">ZIRH <span class="accent">ÖN SUİT</span></div>
                 </div>
             </div>
 
@@ -493,7 +548,7 @@
                     <div class="kit-display">
                         <img src="https://i.hizliresim.com/77oy5vb.jpg" alt="Bildin FC Forma Arka" class="kit-img">
                     </div>
-                    <div class="kit-text"> <span class="accent">ARKA</span></div>
+                    <div class="kit-text">ZIRH <span class="accent">ARKA SUİT</span></div>
                 </div>
             </div>
 
