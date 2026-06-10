@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BİLDİN FC — Resmi Web Sitesi</title>
+    <title>BİLDİN FC — Official Website</title>
+    <!-- Google Fonts: Space Grotesk & Syne for high-end modern athletic look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --bg: #050811;
             --surface: #0d1326;
+            --surface-glow: rgba(30, 144, 255, 0.15);
             --primary: #1e90ff;
             --primary-glow: #00bfff;
             --text: #ffffff;
@@ -33,7 +36,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Arka Plan Parlama Efektleri (Glow) */
+        /* Arka Plan Glow Efektleri */
         .glow-bg-1 {
             position: absolute;
             width: 600px;
@@ -50,13 +53,13 @@
             width: 500px;
             height: 500px;
             background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
-            top: 60%;
+            top: 50%;
             left: -100px;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Üst Menü / Navigation */
+        /* Header / Nav */
         header {
             display: flex;
             justify-content: space-between;
@@ -84,6 +87,7 @@
             border-radius: 50%;
             border: 2px solid var(--primary);
             box-shadow: 0 0 15px rgba(30, 144, 255, 0.6);
+            object-fit: cover;
         }
 
         .brand span {
@@ -119,7 +123,7 @@
             text-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
         }
 
-        /* Hero Bölümü */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -215,7 +219,7 @@
             transform: translateY(-2px);
         }
 
-        /* Genel Başlık Stilleri */
+        /* Section Global */
         section:not(.hero) {
             padding: 100px 8%;
             position: relative;
@@ -243,99 +247,7 @@
             margin-top: 5px;
         }
 
-        /* Maç Kartı / Match Box */
-        .match-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: linear-gradient(145deg, rgba(13, 19, 38, 0.6), rgba(8, 12, 24, 0.9));
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid rgba(30, 144, 255, 0.15);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 20px rgba(30, 144, 255, 0.05);
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .match-container::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-        }
-
-        .match-team {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .match-team img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            box-shadow: 0 0 25px rgba(30, 144, 255, 0.3);
-            border: 2px solid rgba(255,255,255,0.1);
-        }
-
-        .match-team .placeholder-logo {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.03);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--text-muted);
-            border: 2px dashed rgba(255,255,255,0.1);
-        }
-
-        .match-team span {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .match-center {
-            text-align: center;
-            padding: 0 40px;
-        }
-
-        .match-vs {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary), var(--primary-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        .match-info {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .match-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(30, 144, 255, 0.1);
-            border: 1px solid rgba(30, 144, 255, 0.3);
-            color: var(--primary-glow);
-            font-weight: 600;
-            font-size: 0.8rem;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Kadro Düzeni (Squad) */
+        /* Squad Section */
         .squad-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -416,7 +328,7 @@
             letter-spacing: 1px;
         }
 
-        /* Alt Alan / Footer */
+        /* Footer */
         footer {
             padding: 60px 8% 40px 8%;
             background: #03050a;
@@ -460,26 +372,12 @@
             letter-spacing: 0.5px;
         }
 
-        /* Ekran Uyumluluğu / Responsive */
-        @media (max-width: 900px) {
-            .match-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                padding: 40px 20px;
-            }
-            .match-center {
-                grid-row: 1;
-                padding: 0;
-            }
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
             nav { display: none; }
             header { justify-content: center; }
             section:not(.hero) { padding: 80px 5%; }
+            .hero h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -488,62 +386,40 @@
     <div class="glow-bg-1"></div>
     <div class="glow-bg-2"></div>
 
+    <!-- Header Navigation -->
     <header>
         <a href="#" class="brand">
-            <img src="https://hizliresim.com/8020726" alt="Bildin FC">
+            <img src="https://www.save-free.com/cdn/https://instagram.fchm1-1.fna.fbcdn.net/v/t51.82787-19/684860698_17915959620365646_8987748871476407852_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fchm1-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gFSJlhnoTZAxwuTUvyDlKcssV9CLrdckEIw4mzMG8rr0C0z5hb1GuvE7myexhp7aBOZ1AzmbmPAhbW86ActWSP6&_nc_ohc=K24xuEEnn3QQ7kNvwEWpduX&_nc_gid=4e6wu0neyigBUpB-CpFIDw&edm=AEF8tYYBAAAA&ccb=7-5&oh=00_Af8yTGbT1NYZFmAofikdsT3I9So4lnpxY_cuNVQDVDU2CQ&oe=6A2F5A80&_nc_sid=1e20d2" alt="Bildin FC">
             <span>BİLDİN FC</span>
         </a>
         <nav>
             <ul>
                 <li><a href="#" class="active">Ana Sayfa</a></li>
-                <li><a href="#matches">Maçlar</a></li>
                 <li><a href="#squad">Kadro</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-logo-wrapper">
             <div class="hero-logo-glow"></div>
-            <img src="https://hizliresim.com/8020726" alt="Bildin FC Amblem" class="hero-logo">
+            <img src="https://www.save-free.com/cdn/https://instagram.fchm1-1.fna.fbcdn.net/v/t51.82787-19/684860698_17915959620365646_8987748871476407852_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fchm1-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gFSJlhnoTZAxwuTUvyDlKcssV9CLrdckEIw4mzMG8rr0C0z5hb1GuvE7myexhp7aBOZ1AzmbmPAhbW86ActWSP6&_nc_ohc=K24xuEEnn3QQ7kNvwEWpduX&_nc_gid=4e6wu0neyigBUpB-CpFIDw&edm=AEF8tYYBAAAA&ccb=7-5&oh=00_Af8yTGbT1NYZFmAofikdsT3I9So4lnpxY_cuNVQDVDU2CQ&oe=6A2F5A80&_nc_sid=1e20d2" alt="Bildin FC Büyük Logo" class="hero-logo">
         </div>
         <h1>BİLDİN FC</h1>
-        <p>Sahada kusursuz güç, mutlak dominasyon. Yeni nesil futbol ekolü.</p>
-        <a href="#matches" class="cta-btn">Sıradaki Maç</a>
+        <p>Sahada taviz vermeyen güç, saf dominasyon. Yeni nesil futbol ekolü.</p>
+        <a href="#squad" class="cta-btn">Takımı Gör</a>
     </section>
 
-    <section id="matches">
-        <div class="section-header">
-            <p>MÜCADELE GÜNÜ</p>
-            <h2>GELECEK MAÇ</h2>
-        </div>
-        
-        <div class="match-container">
-            <div class="match-team">
-                <img src="https://hizliresim.com/8020726" alt="Bildin FC">
-                <span>BİLDİN FC</span>
-            </div>
-            
-            <div class="match-center">
-                <div class="match-vs">VS</div>
-                <div class="match-info">14 Haziran Pazar &bull; 21:00</div>
-                <span class="match-badge">Halı Saha Arenası</span>
-            </div>
-            
-            <div class="match-team">
-                <div class="placeholder-logo"><i class="fa-solid fa-shield"></i></div>
-                <span>RAKİP TAKIM</span>
-            </div>
-        </div>
-    </section>
-
+    <!-- Squad Section -->
     <section id="squad">
         <div class="section-header">
             <p>ELİT KADRO</p>
-            <h2>TAKIM KADROSU</h2>
+            <h2>OYUNCULAR</h2>
         </div>
 
         <div class="squad-grid">
+            <!-- Player 1 -->
             <div class="squad-card">
                 <div class="player-visual">
                     <i class="fa-solid fa-user-bolt"></i>
@@ -555,6 +431,7 @@
                 </div>
             </div>
 
+            <!-- Player 2 -->
             <div class="squad-card">
                 <div class="player-visual">
                     <i class="fa-solid fa-user-shield"></i>
@@ -566,6 +443,7 @@
                 </div>
             </div>
 
+            <!-- Player 3 -->
             <div class="squad-card">
                 <div class="player-visual">
                     <i class="fa-solid fa-user-lock"></i>
@@ -577,6 +455,7 @@
                 </div>
             </div>
 
+            <!-- Player 4 -->
             <div class="squad-card">
                 <div class="player-visual">
                     <i class="fa-solid fa-user"></i>
@@ -590,6 +469,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-socials">
             <a href="#"><i class="fab fa-instagram"></i></a>
