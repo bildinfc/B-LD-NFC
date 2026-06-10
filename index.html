@@ -15,7 +15,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth; /* Yumuşak kayma efekti */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -25,7 +25,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 180px; /* Üst menü alanı için bırakılan boşluk */
+            padding-top: 180px;
             overflow-x: hidden;
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 40%),
@@ -49,7 +49,7 @@
             z-index: 1000;
             padding: 15px 0;
             display: flex;
-            flex-direction: column; /* Logo üstte, menüler altta dursun diye */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 15px;
@@ -90,7 +90,6 @@
             text-shadow: 0 0 20px rgba(0, 102, 255, 1);
         }
 
-        /* Üst Menü Link Butonları */
         .nav-links {
             display: flex;
             gap: 20px;
@@ -117,7 +116,7 @@
         }
 
         /* ==========================================
-           BÖLÜM (SECTION) BAŞLIKLARI VE YAPISI
+           BÖLÜM BAŞLIKLARI VE YAPISI
            ========================================== */
         .section-title {
             font-size: 2.2rem;
@@ -139,7 +138,7 @@
         }
 
         /* ==========================================
-           DEVAASA OYUNCU KARTLARI
+           DEVAASA OYUNCU KARTLARI (RGB GÜNCELLEME)
            ========================================== */
         .grid-container {
             display: grid;
@@ -156,12 +155,14 @@
             cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
             overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(0, 102, 255, 0.2);
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.15);
         }
 
+        /* RGB Efekti */
         .card::before {
             content: '';
             position: absolute;
@@ -169,9 +170,9 @@
             left: -60%;
             width: 220%;
             height: 220%;
-            background: conic-gradient(#0066ff, #00ffcc, #0022ff, #ffffff, #00ffcc, #0066ff);
-            animation: spin 3.5s linear infinite;
-            opacity: 0;
+            background: conic-gradient(#0066ff, #ff00ff, #00ffcc, #0022ff, #ff0055, #0066ff);
+            animation: spin 4s linear infinite;
+            opacity: 0.3; /* Normalde hafif parlasın */
             transition: opacity 0.4s;
             z-index: 1;
         }
@@ -193,16 +194,17 @@
             padding: 20px;
         }
 
-        /* TIKLANDIĞINDA DEVASA BÜYÜME VE RGB AKTİFLEŞME */
+        /* AKTİFLEŞME VE RGB COŞMASI */
         .card.active {
             transform: scale(1.12);
             z-index: 10;
-            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.5);
+            box-shadow: 0 0 40px rgba(0, 255, 204, 0.6), 0 0 70px rgba(0, 102, 255, 0.4);
             border-color: transparent;
         }
 
         .card.active::before {
-            opacity: 1;
+            opacity: 1; /* Tıklanınca RGB tamamen belirginleşir */
+            animation: spin 2s linear infinite; /* Tıklanınca daha hızlı döner */
         }
 
         .card.active .card-inner {
@@ -250,11 +252,11 @@
         }
 
         /* ==========================================
-           FORMAMIZ BÖLÜMÜ TASARIMI (GÜNCELLENDİ)
+           FORMAMIZ BÖLÜMÜ TASARIMI (RGB GÜNCELLEME)
            ========================================== */
         .kit-wrapper {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
@@ -266,18 +268,18 @@
             background: #060d1f;
             border: 2px solid rgba(0, 102, 255, 0.2);
             border-radius: 24px;
-            padding: 25px;
+            padding: 4px; /* RGB çerçeve boşluğu */
             text-align: center;
             flex: 1;
             min-width: 340px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.15);
         }
 
-        /* Forma kutusu parlama efekti için */
+        /* Forma kutusu RGB Efekti */
         .kit-box::before {
             content: '';
             position: absolute;
@@ -285,9 +287,9 @@
             left: -60%;
             width: 220%;
             height: 220%;
-            background: conic-gradient(#0066ff, #00ffcc, #0022ff, #ffffff, #00ffcc, #0066ff);
-            animation: spin 3.5s linear infinite;
-            opacity: 0;
+            background: conic-gradient(#0066ff, #ff00ff, #00ffcc, #0022ff, #ff0055, #0066ff);
+            animation: spin 4s linear infinite;
+            opacity: 0.3; /* Normalde hafif parlasın */
             transition: opacity 0.4s;
             z-index: 1;
         }
@@ -295,29 +297,29 @@
         .kit-box-inner {
             position: relative;
             background: #060c1a;
-            border-radius: 18px;
-            padding: 15px;
+            border-radius: 20px;
+            padding: 25px;
             z-index: 2;
             transition: background 0.4s;
         }
 
-        /* FORMA TIKLANDIĞINDA BÜYÜME VE RGB AKTİFLEŞME */
+        /* FORMA TIKLANDIĞINDA BÜYÜME VE RGB COŞMASI */
         .kit-box.active {
-            transform: scale(1.08);
+            transform: scale(1.12);
             z-index: 10;
-            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.5);
+            box-shadow: 0 0 40px rgba(0, 255, 204, 0.6), 0 0 70px rgba(0, 102, 255, 0.4);
             border-color: transparent;
         }
 
         .kit-box.active::before {
             opacity: 1;
+            animation: spin 2s linear infinite;
         }
 
         .kit-box.active .kit-box-inner {
             background: linear-gradient(135deg, #09132a 0%, #030814 100%);
         }
 
-        /* Formanın geleceği siber sergileme alanı */
         .kit-display {
             width: 100%;
             height: 380px;
@@ -328,13 +330,13 @@
             align-items: center;
             border: 1px dashed rgba(0, 102, 255, 0.3);
             margin-bottom: 15px;
-            overflow: hidden; /* Taşmayı engeller */
+            overflow: hidden;
         }
 
         .kit-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Resmi kutuya tam sığdırır */
+            object-fit: cover;
             filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.3));
             transition: filter 0.3s;
         }
@@ -411,7 +413,7 @@
             .card { height: 280px; }
             .player-name { font-size: 1.6rem; }
             .kit-wrapper { gap: 20px; }
-            .kit-box { min-width: 100%; padding: 15px; }
+            .kit-box { min-width: 100%; }
             .kit-display { height: 300px; }
         }
     </style>
@@ -437,7 +439,7 @@
                 <div class="card-inner">
                     <div class="player-number">01</div>
                     <div class="player-name">İshakso</div>
-                    <div class="player-badge">Kaleci</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -445,7 +447,7 @@
                 <div class="card-inner">
                     <div class="player-number">03</div>
                     <div class="player-name">Emin</div>
-                    <div class="player-badge">Forvet</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -453,7 +455,7 @@
                 <div class="card-inner">
                     <div class="player-number">05</div>
                     <div class="player-name">Emirhan</div>
-                    <div class="player-badge">Stoper</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -461,7 +463,7 @@
                 <div class="card-inner">
                     <div class="player-number">09</div>
                     <div class="player-name">Eray</div>
-                    <div class="player-badge">Forvet</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -469,7 +471,7 @@
                 <div class="card-inner">
                     <div class="player-number">10</div>
                     <div class="player-name">İhsan</div>
-                    <div class="player-badge">Stoper</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -477,7 +479,7 @@
                 <div class="card-inner">
                     <div class="player-number">22</div>
                     <div class="player-name">Altay</div>
-                    <div class="player-badge">Orta Saha</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
@@ -493,7 +495,7 @@
                     <div class="kit-display">
                         <img src="https://i.hizliresim.com/2gg7fvo.jpg" alt="Bildin FC Forma Ön" class="kit-img">
                     </div>
-                    <div class="kit-text">ZIRH <span class="accent">ÖN</span></div>
+                    <div class="kit-text">ZIRH <span class="accent">ÖN SUİT</span></div>
                 </div>
             </div>
 
@@ -502,7 +504,7 @@
                     <div class="kit-display">
                         <img src="https://i.hizliresim.com/77oy5vb.jpg" alt="Bildin FC Forma Arka" class="kit-img">
                     </div>
-                    <div class="kit-text"> <span class="accent">ARKA</span></div>
+                    <div class="kit-text">ZIRH <span class="accent">ARKA SUİT</span></div>
                 </div>
             </div>
 
@@ -519,7 +521,6 @@
     </footer>
 
     <script>
-        // Oyuncu Kartları ve Forma Kutularını Seçiyoruz
         const elementsToClick = document.querySelectorAll('.card, .kit-box');
         
         elementsToClick.forEach(element => {
@@ -527,9 +528,7 @@
                 if(element.classList.contains('active')) {
                     element.classList.remove('active');
                 } else {
-                    // Sadece tıklanan büyüsün, diğer aktif olanlar küçülsün
                     elementsToClick.forEach(el => el.classList.remove('active'));
-                    element.add('active'); // JavaScript hata vermemesi için classList.add kullanıyoruz
                     element.classList.add('active');
                 }
             });
@@ -537,4 +536,4 @@
     </script>
 
 </body>
-</html>
+        </html>
