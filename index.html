@@ -63,19 +63,12 @@
             gap: 15px;
         }
 
-        .site-logo-shield {
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0066ff, #00ffcc);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 900;
-            font-size: 18px;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+        /* Yeni logo resmi için eklenen siber stil */
+        .site-logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.8));
         }
 
         .logo-text {
@@ -138,7 +131,7 @@
         }
 
         /* ==========================================
-           DEVAASA OYUNCU KARTLARI (RGB GÜNCELLEME)
+           DEVAASA OYUNCU KARTLARI
            ========================================== */
         .grid-container {
             display: grid;
@@ -162,7 +155,6 @@
             box-shadow: 0 0 15px rgba(0, 102, 255, 0.15);
         }
 
-        /* RGB Efekti */
         .card::before {
             content: '';
             position: absolute;
@@ -172,7 +164,7 @@
             height: 220%;
             background: conic-gradient(#0066ff, #ff00ff, #00ffcc, #0022ff, #ff0055, #0066ff);
             animation: spin 4s linear infinite;
-            opacity: 0.3; /* Normalde hafif parlasın */
+            opacity: 0.3;
             transition: opacity 0.4s;
             z-index: 1;
         }
@@ -194,7 +186,6 @@
             padding: 20px;
         }
 
-        /* AKTİFLEŞME VE RGB COŞMASI */
         .card.active {
             transform: scale(1.12);
             z-index: 10;
@@ -203,8 +194,8 @@
         }
 
         .card.active::before {
-            opacity: 1; /* Tıklanınca RGB tamamen belirginleşir */
-            animation: spin 2s linear infinite; /* Tıklanınca daha hızlı döner */
+            opacity: 1;
+            animation: spin 2s linear infinite;
         }
 
         .card.active .card-inner {
@@ -252,7 +243,7 @@
         }
 
         /* ==========================================
-           FORMAMIZ BÖLÜMÜ TASARIMI (RGB GÜNCELLEME)
+           FORMAMIZ BÖLÜMÜ TASARIMI
            ========================================== */
         .kit-wrapper {
             display: flex;
@@ -268,7 +259,7 @@
             background: #060d1f;
             border: 2px solid rgba(0, 102, 255, 0.2);
             border-radius: 24px;
-            padding: 4px; /* RGB çerçeve boşluğu */
+            padding: 4px;
             text-align: center;
             flex: 1;
             min-width: 340px;
@@ -279,7 +270,6 @@
             box-shadow: 0 0 15px rgba(0, 102, 255, 0.15);
         }
 
-        /* Forma kutusu RGB Efekti */
         .kit-box::before {
             content: '';
             position: absolute;
@@ -289,7 +279,7 @@
             height: 220%;
             background: conic-gradient(#0066ff, #ff00ff, #00ffcc, #0022ff, #ff0055, #0066ff);
             animation: spin 4s linear infinite;
-            opacity: 0.3; /* Normalde hafif parlasın */
+            opacity: 0.3;
             transition: opacity 0.4s;
             z-index: 1;
         }
@@ -303,7 +293,6 @@
             transition: background 0.4s;
         }
 
-        /* FORMA TIKLANDIĞINDA BÜYÜME VE RGB COŞMASI */
         .kit-box.active {
             transform: scale(1.12);
             z-index: 10;
@@ -422,7 +411,7 @@
 
     <nav class="navbar">
         <a href="#" class="logo-link">
-            <div class="site-logo-shield">BFC</div>
+            <img src="https://i.hizliresim.com/hbkkvzq.png" alt="Bildin FC Logo" class="site-logo-img">
             <span class="logo-text">BİLDİN <span class="accent">FC</span></span>
         </a>
         <div class="nav-links">
@@ -439,7 +428,7 @@
                 <div class="card-inner">
                     <div class="player-number">01</div>
                     <div class="player-name">İshakso</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Beli Dönmeyen Kaleci</div>
                 </div>
             </div>
 
@@ -447,7 +436,7 @@
                 <div class="card-inner">
                     <div class="player-number">03</div>
                     <div class="player-name">Emin</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Forvet</div>
                 </div>
             </div>
 
@@ -455,7 +444,7 @@
                 <div class="card-inner">
                     <div class="player-number">05</div>
                     <div class="player-name">Emirhan</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Forvet</div>
                 </div>
             </div>
 
@@ -463,7 +452,7 @@
                 <div class="card-inner">
                     <div class="player-number">09</div>
                     <div class="player-name">Eray</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Forvet</div>
                 </div>
             </div>
 
@@ -471,7 +460,7 @@
                 <div class="card-inner">
                     <div class="player-number">10</div>
                     <div class="player-name">İhsan</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Engelli Stoper</div>
                 </div>
             </div>
 
@@ -479,7 +468,7 @@
                 <div class="card-inner">
                     <div class="player-number">22</div>
                     <div class="player-name">Altay</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Orta Saha</div>
                 </div>
             </div>
 
@@ -495,7 +484,7 @@
                     <div class="kit-display">
                         <img src="https://i.hizliresim.com/2gg7fvo.jpg" alt="Bildin FC Forma Ön" class="kit-img">
                     </div>
-                    <div class="kit-text">ZIRH <span class="accent">ÖN SUİT</span></div>
+                    <div class="kit-text"> <span class="accent">ÖN</span></div>
                 </div>
             </div>
 
@@ -504,7 +493,7 @@
                     <div class="kit-display">
                         <img src="https://i.hizliresim.com/77oy5vb.jpg" alt="Bildin FC Forma Arka" class="kit-img">
                     </div>
-                    <div class="kit-text">ZIRH <span class="accent">ARKA SUİT</span></div>
+                    <div class="kit-text"> <span class="accent">ARKA</span></div>
                 </div>
             </div>
 
@@ -536,4 +525,4 @@
     </script>
 
 </body>
-        </html>
+</html>
