@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bildin FC | Official</title>
+    <title>Bildin FC</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
@@ -25,7 +25,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 130px;
+            padding-top: 150px; /* Üst logodan sonra başlayacak boşluk */
             overflow-x: hidden;
             /* Dinamik siber arka plan ışıkları */
             background-image: 
@@ -37,7 +37,7 @@
         }
 
         /* ==========================================
-           ORTALANMIŞ PARLAYAN LOGO / NAVBAR
+           TAM ORTALANMIŞ PARLAYAN LOGO / NAVBAR
            ========================================== */
         .navbar {
             position: fixed;
@@ -84,46 +84,7 @@
         }
 
         /* ==========================================
-           TAKIM KULÜP GÖSTERGELERİ (STATS)
-           ========================================== */
-        .stats-container {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(0, 102, 255, 0.2);
-            padding: 15px 30px;
-            border-radius: 12px;
-            text-align: center;
-            min-width: 180px;
-            box-shadow: inset 0 0 15px rgba(0, 102, 255, 0.05);
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #0066ff;
-            text-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: #a0aec0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 2px;
-        }
-
-        /* ==========================================
-           DEVAASA RGB OYUNCU KARTLARI
+           DEVAASA OYUNCU KARTLARI ALANI
            ========================================== */
         .container {
             width: 100%;
@@ -133,7 +94,7 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Minimum genişliği büyüterek kartları devasa yaptık */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             padding: 20px 0;
         }
@@ -142,7 +103,7 @@
         .card {
             background: #060d1f;
             border-radius: 24px;
-            height: 320px; /* Kart yüksekliği arttırıldı */
+            height: 320px;
             position: relative;
             cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
@@ -186,24 +147,25 @@
             padding: 20px;
         }
 
-        /* BÜYÜME VE RGB TETİKLEYİCİSİ */
-        .card:hover, .card:focus, .card.active {
-            transform: scale(1.08) translateY(-10px); /* Kartı yukarı doğru büyüterek fırlatır */
+        /* TIKLANDIĞINDA DEVASA BÜYÜME VE RGB AKTİFLEŞME */
+        .card.active {
+            transform: scale(1.12); /* Tıklandığında kartı ciddi oranda büyütür */
             z-index: 10;
-            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.5);
+            border-color: transparent;
         }
 
-        .card:hover::before, .card:focus::before, .card.active::before {
-            opacity: 1; /* RGB Işıkları canlandırır */
+        .card.active::before {
+            opacity: 1; /* RGB Işıkları sadece tıklanıp aktif olunca yanar */
         }
 
-        .card:hover .card-inner, .card:focus .card-inner, .card.active .card-inner {
+        .card.active .card-inner {
             background: linear-gradient(135deg, #09132a 0%, #030814 100%);
         }
 
-        /* Kart İçi Yazı Boyutları (Büyütüldü) */
+        /* Kart İçi Yazı Tasarımları */
         .player-number {
-            font-size: 5.5rem; /* Dev numara */
+            font-size: 5.5rem;
             font-weight: 900;
             color: #ffffff;
             line-height: 1;
@@ -214,7 +176,7 @@
             transition: all 0.3s;
         }
 
-        .card:hover .player-number, .card.active .player-number {
+        .card.active .player-number {
             background: linear-gradient(180deg, #00ffcc 0%, #0066ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -222,7 +184,7 @@
         }
 
         .player-name {
-            font-size: 2rem; /* Büyük isim yazı boyutu */
+            font-size: 2rem;
             font-weight: 800;
             color: #ffffff;
             text-transform: uppercase;
@@ -246,7 +208,7 @@
            PARLAYAN SOSYAL MEDYA BUTONLARI (FOOTER)
            ========================================== */
         .footer-social {
-            margin: 60px 0;
+            margin: 80px 0 50px 0;
             text-align: center;
             width: 100%;
         }
@@ -256,7 +218,7 @@
             color: #a0aec0;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .social-grid {
@@ -283,7 +245,6 @@
             box-shadow: 0 0 15px rgba(0, 102, 255, 0.1);
         }
 
-        /* Butonların üstüne gelince parlaması */
         .social-btn:hover {
             transform: translateY(-3px);
             background: #0066ff;
@@ -307,7 +268,7 @@
 </head>
 <body>
 
-    <!-- NAVIGASYON (TAM ORTALI) -->
+    <!-- NAVBAR (LOGOMUZ TAM ORTADA) -->
     <nav class="navbar">
         <a href="#" class="logo-link">
             <img src="https://instagram.fyei6-3.fna.fbcdn.net/v/t51.82787-19/684860698_17915959620365646_8987748871476407852_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fyei6-3.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gE1u3f_WSex_NC80tiOYiDWATJ463rjkUZs315nBsxWskkjx0RFOnUzb8d9kZapRcg&_nc_ohc=K24xuEEnn3QQ7kNvwFTnz6H&_nc_gid=-XF2wGtbv8N5gLUKruH_Aw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af9-w8RKkqgHQEiQKIqqbdvjDIEsTLPpHNadNmm78hPZzw&oe=6A2F5A80&_nc_sid=8b3546" alt="Bildin FC Logo" class="site-logo">
@@ -315,28 +276,12 @@
         </a>
     </nav>
 
-    <!-- TAKIM KULÜP SAYAÇLARI -->
-    <div class="stats-container">
-        <div class="stat-box">
-            <div class="stat-value">6</div>
-            <div class="stat-label">Aktif Oyuncu</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-value">%100</div>
-            <div class="stat-label">Mücadele</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-value">∞</div>
-            <div class="stat-label">Kadro Gücü</div>
-        </div>
-    </div>
-
-    <!-- DEVAASA OYUNCU KARTLARI ALANI -->
+    <!-- KARTLAR ALANI -->
     <main class="container">
         <div class="grid-container">
             
             <!-- 01 İshakso -->
-            <div class="card" tabindex="0">
+            <div class="card">
                 <div class="card-inner">
                     <div class="player-number">01</div>
                     <div class="player-name">İshakso</div>
@@ -345,7 +290,7 @@
             </div>
 
             <!-- 03 Emin -->
-            <div class="card" tabindex="0">
+            <div class="card">
                 <div class="card-inner">
                     <div class="player-number">03</div>
                     <div class="player-name">Emin</div>
@@ -354,7 +299,7 @@
             </div>
 
             <!-- 05 Emirhan -->
-            <div class="card" tabindex="0">
+            <div class="card">
                 <div class="card-inner">
                     <div class="player-number">05</div>
                     <div class="player-name">Emirhan</div>
@@ -363,7 +308,7 @@
             </div>
 
             <!-- 09 Eray -->
-            <div class="card" tabindex="0">
+            <div class="card">
                 <div class="card-inner">
                     <div class="player-number">09</div>
                     <div class="player-name">Eray</div>
@@ -372,7 +317,7 @@
             </div>
 
             <!-- 10 İhsan -->
-            <div class="card" tabindex="0">
+            <div class="card">
                 <div class="card-inner">
                     <div class="player-number">10</div>
                     <div class="player-name">İhsan</div>
@@ -381,7 +326,7 @@
             </div>
 
             <!-- 22 Altay -->
-            <div class="card" tabindex="0">
+            <div class="card">
                 <div class="card-inner">
                     <div class="player-number">22</div>
                     <div class="player-name">Altay</div>
@@ -396,20 +341,25 @@
     <footer class="footer-social">
         <div class="social-title">Bizi Takip Edin</div>
         <div class="social-grid">
-            <!-- href="#" yazan yerlerdeki # işaretini silip kendi hesap linklerinizi yazabilirsiniz -->
             <a href="#" target="_blank" class="social-btn">Instagram</a>
             <a href="#" target="_blank" class="social-btn">TikTok</a>
             <a href="#" target="_blank" class="social-btn">YouTube</a>
         </div>
     </footer>
 
-    <!-- Tıklama ve Dokunma Efekti Yönetimi -->
+    <!-- Tıklama / Büyüme Scripti -->
     <script>
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
             card.addEventListener('click', () => {
-                cards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
+                // Eğer tıklanan kart zaten aktifse, küçültmek için aktifi kaldırır
+                if(card.classList.contains('active')) {
+                    card.classList.remove('active');
+                } else {
+                    // Diğer tüm kartların büyümesini kapatır, sadece buna verir
+                    cards.forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                }
             });
         });
     </script>
