@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bildin FC | Resmi Web Sitesi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================
-           GENEL VE MODERN TASARIM AYARLARI
+           GENEL AYARLAR (Mavi & Beyaz Tema)
            ========================================== */
         * {
             margin: 0;
@@ -19,23 +19,29 @@
         }
 
         body {
-            background-color: #0d0d11; /* Modern Gece Siyahı */
+            background-color: #050b14; /* Çok koyu lacivert/siyah, mavi tonları patlasın diye */
             color: #ffffff;
             overflow-x: hidden;
         }
 
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         /* ==========================================
-           NAVIGASYON (NAVBAR) & LOGO AYARLARI
+           NAVBAR & PARLAYAN MAVİ LOGO
            ========================================== */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(13, 13, 17, 0.85);
-            backdrop-filter: blur(10px); /* Arkadaki içeriği bulanıklaştıran modern efekt */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(5, 11, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
             z-index: 1000;
-            padding: 15px 0;
+            padding: 12px 0;
         }
 
         .nav-container {
@@ -47,7 +53,6 @@
             padding: 0 20px;
         }
 
-        /* LOGONUN EKRANDA DÜZGÜN GÖRÜNMESİNİ SAĞLAYAN KISIM */
         .logo-link {
             display: flex;
             align-items: center;
@@ -55,58 +60,54 @@
             gap: 12px;
         }
 
+        /* Mavi parlamalı logomuz */
         .site-logo {
-            height: 50px; /* Logonun ekrandaki yüksekliği */
-            width: auto;  /* En-boy oranını korur, logoyu ezmez */
-            object-fit: contain;
-            /* Logonun arkasında hafif neon bir parlama efekti yaratır */
-            filter: drop-shadow(0px 0px 8px rgba(255, 51, 102, 0.3)); 
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #0066ff; /* Parlayan Mavi Çerçeve */
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.6); /* Mavi Işık Efekti */
         }
 
         .logo-text {
-            color: #fff;
+            color: #ffffff;
             font-weight: 900;
             font-size: 24px;
             letter-spacing: 1px;
         }
 
         .accent {
-            color: #ff3366; /* Takımımızın vurgu rengi (Neon Pembe/Kırmızı) */
+            color: #0066ff; /* Vurgu rengi mavi */
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
         }
 
-        /* Menü Linkleri */
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         .nav-menu a {
-            color: #a0a0aa;
+            color: #a0aec0;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         .nav-menu a:hover {
-            color: #fff;
+            color: #0066ff;
         }
 
         /* ==========================================
-           HERO (GİRİŞ) ALANI TASARIMI
+           ANA SAYFA / GİRİŞ ALANI (HERO)
            ========================================== */
         .hero-section {
             height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 10%;
-            /* Modern, teknolojik bir arka plan ışığı efekti */
-            background: radial-gradient(circle at 80% 20%, rgba(255, 51, 102, 0.15) 0%, transparent 50%), 
-                        radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            max-width: 800px;
+            background: radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
         }
 
         .hero-title {
@@ -114,50 +115,175 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 20px;
-            letter-spacing: -1px;
         }
 
-        /* Başlıktaki renk geçişli (Gradient) yazı */
+        /* Mavi-Beyaz geçişli dev yazı */
         .gradient-text {
-            background: linear-gradient(45deg, #ff3366, #ff6633);
+            background: linear-gradient(45deg, #0066ff, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.3));
         }
 
         .hero-subtitle {
             font-size: 1.2rem;
-            color: #a0a0aa;
+            color: #cbd5e1;
             max-width: 550px;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            margin-bottom: 35px;
         }
 
-        /* Çağrı Butonu (CTA) */
+        /* Parlayan Mavi Buton */
         .cta-btn {
             display: inline-block;
-            padding: 16px 40px;
-            background: linear-gradient(45deg, #ff3366, #ff6633);
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #0066ff, #0052cc);
             color: white;
             text-decoration: none;
             font-weight: 700;
             border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(255, 51, 102, 0.5);
+            box-shadow: 0 0 30px rgba(0, 102, 255, 0.7);
         }
 
-        /* Mobil Uyum (Responsive) */
+        /* ==========================================
+           OYUNCULAR (KADRO) BÖLÜMÜ
+           ========================================== */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #a0aec0;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        /* Parlayan Oyuncu Kartları */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0066ff, #ffffff);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 102, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .player-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #0066ff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+        }
+
+        .player-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .player-pos {
+            font-size: 0.8rem;
+            color: #0066ff;
+            background: rgba(0, 102, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==========================================
+           MAÇLAR BÖLÜMÜ
+           ========================================== */
+        .match-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 102, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .match-flex {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .team-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .match-score {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffffff;
+            background: linear-gradient(45deg, #0066ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 0 20px;
+        }
+
+        .match-status {
+            font-size: 0.85rem;
+            color: #00e676; /* Kazanılan maçlar için yeşil yeon */
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Mobil Uyumluluk */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-            .nav-menu {
-                display: none; /* Mobil menü tasarımı daha sonra eklenebilir */
-            }
+            .hero-title { font-size: 2.8rem; }
+            .nav-menu { display: none; }
+            .match-flex { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -165,26 +291,80 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo-link">
-                <img src="logo.png" alt="Bildin FC Logo" class="site-logo">
+            <a href="#home" class="logo-link">
+                <img src="https://instagram.fyei6-3.fna.fbcdn.net/v/t51.82787-19/684860698_17915959620365646_8987748871476407852_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fyei6-3.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gE1u3f_WSex_NC80tiOYiDWATJ463rjkUZs315nBsxWskkjx0RFOnUzb8d9kZapRcg&_nc_ohc=K24xuEEnn3QQ7kNvwFTnz6H&_nc_gid=-XF2wGtbv8N5gLUKruH_Aw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af9-w8RKkqgHQEiQKIqqbdvjDIEsTLPpHNadNmm78hPZzw&oe=6A2F5A80&_nc_sid=8b3546" alt="Bildin FC Logo" class="site-logo">
                 <span class="logo-text">BİLDİN <span class="accent">FC</span></span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#team">Takımımız</a></li>
-                <li><a href="#matches">Maçlar</a></li>
-                <li><a href="#contact">İletişim</a></li>
+                <li><a href="#players">Oyuncular</a></li>
+                <li><a href="#matches">Son Maç</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero-section" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title">SAHANIN <br><span class="gradient-text">YENİ KRALLARI</span></h1>
-            <p class="hero-subtitle">Bildin FC ruhuyla tanışın. Sahada basmadık yer bırakmayanların, son düdüğe kadar pes etmeyenlerin takımı.</p>
-            <a href="#matches" class="cta-btn">Son Maçları Gör</a>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
+            <div class="hero-content">
+                <h1 class="hero-title">MAVİ BEYAZ <br><span class="gradient-text">ASALET!</span></h1>
+                <p class="hero-subtitle">Bildin FC sahalara iniyor. Rakipleri titreten oyun, taraftarı coşturan ruh burada.</p>
+                <a href="#players" class="cta-btn">Kadroya Göz At</a>
+            </div>
         </div>
     </header>
+
+    <section id="players">
+        <h2 class="section-title">OYUNCU KADROSU</h2>
+        <p class="section-subtitle">Sahanın her karışında basmadık yer bırakmayan Bildin FC yıldızları.</p>
+        
+        <div class="grid-container">
+            <div class="card">
+                <div class="player-number">1</div>
+                <div class="player-name">Ahmet Yılmaz</div>
+                <div class="player-pos">Kaleci</div>
+            </div>
+            <div class="card">
+                <div class="player-number">4</div>
+                <div class="player-name">Mehmet Kaya</div>
+                <div class="player-pos">Defans</div>
+            </div>
+            <div class="card">
+                <div class="player-number">10</div>
+                <div class="player-name">Can Demir</div>
+                <div class="player-pos">Orta Saha (K)</div>
+            </div>
+            <div class="card">
+                <div class="player-number">7</div>
+                <div class="player-name">Burak Şahin</div>
+                <div class="player-pos">Kanat</div>
+            </div>
+            <div class="card">
+                <div class="player-number">9</div>
+                <div class="player-name">Arda Çelik</div>
+                <div class="player-pos">Forvet</div>
+            </div>
+            <div class="card">
+                <div class="player-number">11</div>
+                <div class="player-name">Ege Öztürk</div>
+                <div class="player-pos">Forvet</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="matches">
+        <h2 class="section-title">SON MAÇ DURUMU</h2>
+        <p class="section-subtitle">Takımımızın sahada aldığı en son skor.</p>
+        
+        <div class="match-card">
+            <div class="match-status">✓ MAÇ SONUCU</div>
+            <div class="match-flex">
+                <span class="team-name" style="color: #0066ff;">BILDIN FC</span>
+                <span class="match-score">5 - 2</span>
+                <span class="team-name" style="color: #ffffff;">RAKİP TAKIM</span>
+            </div>
+            <p style="color: #a0aec0; font-size: 0.9rem;">Bildin FC fırtınası durdurulamıyor!</p>
+        </div>
+    </section>
 
 </body>
 </html>
