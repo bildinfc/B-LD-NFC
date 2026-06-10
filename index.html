@@ -15,7 +15,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Yumuşak kayma efekti */
         }
 
         body {
@@ -25,7 +25,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 150px;
+            padding-top: 180px; /* Üst menü alanı için bırakılan boşluk */
             overflow-x: hidden;
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 40%),
@@ -36,7 +36,7 @@
         }
 
         /* ==========================================
-           TAM ORTALANMIŞ PARLAYAN NAVBAR
+           MODERN MENÜLÜ ÜST ALAN (NAVBAR)
            ========================================== */
         .navbar {
             position: fixed;
@@ -49,8 +49,10 @@
             z-index: 1000;
             padding: 15px 0;
             display: flex;
+            flex-direction: column; /* Logo üstte, menüler altta dursun diye */
             justify-content: center;
             align-items: center;
+            gap: 15px;
             box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
         }
 
@@ -58,31 +60,29 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 18px;
+            gap: 15px;
         }
 
-        /* Sadece CSS ile oluşturulmuş, asla kırılmayan Parlayan Akıllı Logo alanı */
         .site-logo-shield {
-            height: 65px;
-            width: 65px;
+            height: 50px;
+            width: 50px;
             border-radius: 50%;
             background: linear-gradient(135deg, #0066ff, #00ffcc);
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: 900;
-            font-size: 22px;
+            font-size: 18px;
             color: #ffffff;
             border: 2px solid #ffffff;
-            box-shadow: 0 0 25px rgba(0, 102, 255, 0.8);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
         }
 
         .logo-text {
             color: #ffffff;
             font-weight: 900;
-            font-size: 32px;
-            letter-spacing: 3px;
+            font-size: 26px;
+            letter-spacing: 2px;
         }
 
         .accent {
@@ -90,20 +90,62 @@
             text-shadow: 0 0 20px rgba(0, 102, 255, 1);
         }
 
+        /* Üst Menü Link Butonları */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 8px 24px;
+            border-radius: 30px;
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #0066ff;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.6);
+            border-color: #00ffcc;
+        }
+
         /* ==========================================
-           DEVAASA OYUNCU KARTLARI ALANI
+           BÖLÜM (SECTION) BAŞLIKLARI VE YAPISI
            ========================================== */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #0066ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.3));
+        }
+
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 0 20px;
+            padding: 60px 20px;
         }
 
+        /* ==========================================
+           DEVAASA OYUNCU KARTLARI
+           ========================================== */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
-            padding: 20px 0;
+            padding: 10px 0;
         }
 
         .card {
@@ -151,7 +193,7 @@
             padding: 20px;
         }
 
-        /* TIKLANDIĞINDA AKTİFLEŞEN BÜYÜME VE RGB */
+        /* TIKLANDIĞINDA DEVASA BÜYÜME VE RGB AKTİFLEŞME */
         .card.active {
             transform: scale(1.12);
             z-index: 10;
@@ -208,10 +250,52 @@
         }
 
         /* ==========================================
+           FORMAMIZ BÖLÜMÜ TASARIMI
+           ========================================== */
+        .kit-box {
+            background: #060d1f;
+            border: 2px solid rgba(0, 102, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Formanın geleceği siber sergileme alanı */
+        .kit-display {
+            width: 100%;
+            height: 350px;
+            background: radial-gradient(circle, rgba(0,102,255,0.2) 0%, transparent 70%);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed rgba(0, 102, 255, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .kit-img {
+            max-height: 90%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.5));
+        }
+
+        .kit-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        /* ==========================================
            SOSYAL MEDYA ALANI
            ========================================== */
         .footer-social {
-            margin: 80px 0 50px 0;
+            margin: 40px 0 60px 0;
             text-align: center;
             width: 100%;
         }
@@ -260,76 +344,106 @@
         }
 
         @media (max-width: 480px) {
-            .logo-text { font-size: 24px; }
+            .navbar { padding: 10px 0; gap: 10px;}
+            .logo-text { font-size: 20px; }
             .grid-container { grid-template-columns: 1fr; }
             .card { height: 280px; }
             .player-name { font-size: 1.6rem; }
+            .kit-box { padding: 20px; }
+            .kit-display { height: 250px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- MENÜLÜ ÜST NAVBAR ALANI -->
     <nav class="navbar">
         <a href="#" class="logo-link">
             <div class="site-logo-shield">BFC</div>
             <span class="logo-text">BİLDİN <span class="accent">FC</span></span>
         </a>
+        <!-- Tıklandığında İlgili Bölüme Gönderen Butonlar -->
+        <div class="nav-links">
+            <a href="#kadro" class="nav-btn">Kadromuz</a>
+            <a href="#forma" class="nav-btn">Formamız</a>
+        </div>
     </nav>
 
-    <main class="container">
+    <!-- 1. BÖLÜM: KADROMUZ -->
+    <main class="container" id="kadro">
+        <h2 class="section-title">KADROMUZ</h2>
         <div class="grid-container">
             
+            <!-- 01 İshakso -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">01</div>
                     <div class="player-name">İshakso</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Kaleci</div>
                 </div>
             </div>
 
+            <!-- 03 Emin -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">03</div>
                     <div class="player-name">Emin</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Forvet</div>
                 </div>
             </div>
 
+            <!-- 05 Emirhan -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">05</div>
                     <div class="player-name">Emirhan</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Stoper</div>
                 </div>
             </div>
 
+            <!-- 09 Eray -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">09</div>
                     <div class="player-name">Eray</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Forvet</div>
                 </div>
             </div>
 
+            <!-- 10 İhsan -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">10</div>
                     <div class="player-name">İhsan</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Stoper</div>
                 </div>
             </div>
 
+            <!-- 22 Altay -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">22</div>
                     <div class="player-name">Altay</div>
-                    <div class="player-badge">Kadro</div>
+                    <div class="player-badge">Orta Saha</div>
                 </div>
             </div>
 
         </div>
     </main>
 
+    <!-- 2. BÖLÜM: FORMAMIZ -->
+    <section class="container" id="forma">
+        <h2 class="section-title">FORMAMIZ</h2>
+        <div class="kit-box">
+            <div class="kit-display">
+                <!-- Forma resminizin linkini src="link" kısmına koyabilirsiniz. Şimdilik geçici bir logo simgesi duruyor -->
+                <span style="font-size: 5rem; filter: drop-shadow(0 0 10px #0066ff);">👕</span>
+            </div>
+            <div class="kit-text">BİLDİN FC <span class="accent">2026</span> ZIRHI</div>
+        </div>
+    </section>
+
+    <!-- SOSYAL MEDYA -->
     <footer class="footer-social">
         <div class="social-title">Bizi Takip Edin</div>
         <div class="social-grid">
@@ -339,6 +453,7 @@
         </div>
     </footer>
 
+    <!-- Tıklama / Büyüme Scripti -->
     <script>
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
