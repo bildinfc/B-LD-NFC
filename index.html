@@ -84,7 +84,7 @@
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -216,7 +216,6 @@
             transition: all 0.3s;
         }
 
-        /* Teknik ekipteki büyük harf sembolleri için */
         .staff-icon {
             font-size: 4.5rem;
             font-weight: 900;
@@ -255,7 +254,6 @@
             text-transform: uppercase;
         }
 
-        /* Teknik Ekip Rozet Rengi */
         .staff-badge {
             color: #ff00ff;
             border-color: rgba(255, 0, 255, 0.4);
@@ -263,6 +261,34 @@
         }
         .card.active .staff-badge {
             box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        /* ==========================================
+           AMACIMIZ BÖLÜMÜ ÖZEL STİLLERİ
+           ========================================== */
+        .purpose-card {
+            max-width: 850px;
+            height: auto;
+            min-height: 260px;
+            margin: 0 auto;
+        }
+
+        .purpose-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.7;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .purpose-author {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: #00ffcc;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         /* ==========================================
@@ -427,6 +453,7 @@
             .kit-wrapper { gap: 20px; }
             .kit-box { min-width: 100%; }
             .kit-display { height: 300px; }
+            .purpose-text { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -440,6 +467,7 @@
         <div class="nav-links">
             <a href="#kadro" class="nav-btn">Kadromuz</a>
             <a href="#teknik-ekip" class="nav-btn">Teknik Ekibimiz</a>
+            <a href="#amacimiz" class="nav-btn">Amacımız</a>
             <a href="#forma" class="nav-btn">Formamız</a>
         </div>
     </nav>
@@ -495,6 +523,7 @@
                     <div class="player-badge">Orta Saha</div>
                 </div>
             </div>
+            
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">69</div>
@@ -534,6 +563,19 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- AMACIMIZ BÖLÜMÜ -->
+    <section class="container" id="amacimiz">
+        <h2 class="section-title">AMACIMIZ</h2>
+        <div class="card purpose-card">
+            <div class="card-inner">
+                <p class="purpose-text">
+                    “Maksadımız İngilizler gibi toplu bir halde oynamak, bir renge ve bir isme malik olmak ve Türk olmayan takımları yenmektir.“
+                </p>
+                <div class="purpose-author">— Sir Ömer Can Öztürk</div>
+            </div>
         </div>
     </section>
 
