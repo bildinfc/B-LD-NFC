@@ -250,45 +250,106 @@
         }
 
         /* ==========================================
-           FORMAMIZ BÖLÜMÜ TASARIMI
+           FORMAMIZ BÖLÜMÜ TASARIMI (GÜNCELLENDİ)
            ========================================== */
+        .kit-wrapper {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .kit-box {
             background: #060d1f;
             border: 2px solid rgba(0, 102, 255, 0.2);
             border-radius: 24px;
-            padding: 40px;
+            padding: 25px;
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+            flex: 1;
+            min-width: 340px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+        }
+
+        /* Forma kutusu parlama efekti için */
+        .kit-box::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: conic-gradient(#0066ff, #00ffcc, #0022ff, #ffffff, #00ffcc, #0066ff);
+            animation: spin 3.5s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 1;
+        }
+
+        .kit-box-inner {
+            position: relative;
+            background: #060c1a;
+            border-radius: 18px;
+            padding: 15px;
+            z-index: 2;
+            transition: background 0.4s;
+        }
+
+        /* FORMA TIKLANDIĞINDA BÜYÜME VE RGB AKTİFLEŞME */
+        .kit-box.active {
+            transform: scale(1.08);
+            z-index: 10;
+            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.5);
+            border-color: transparent;
+        }
+
+        .kit-box.active::before {
+            opacity: 1;
+        }
+
+        .kit-box.active .kit-box-inner {
+            background: linear-gradient(135deg, #09132a 0%, #030814 100%);
         }
 
         /* Formanın geleceği siber sergileme alanı */
         .kit-display {
             width: 100%;
-            height: 350px;
+            height: 380px;
             background: radial-gradient(circle, rgba(0,102,255,0.2) 0%, transparent 70%);
             border-radius: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
             border: 1px dashed rgba(0, 102, 255, 0.3);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            overflow: hidden; /* Taşmayı engeller */
         }
 
         .kit-img {
-            max-height: 90%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.5));
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmi kutuya tam sığdırır */
+            filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.3));
+            transition: filter 0.3s;
+        }
+
+        .kit-box.active .kit-img {
+            filter: drop-shadow(0 0 25px rgba(0, 255, 204, 0.6));
         }
 
         .kit-text {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 800;
             letter-spacing: 1px;
             color: #ffffff;
+            text-transform: uppercase;
+            margin-top: 5px;
         }
 
         /* ==========================================
@@ -349,8 +410,9 @@
             .grid-container { grid-template-columns: 1fr; }
             .card { height: 280px; }
             .player-name { font-size: 1.6rem; }
-            .kit-box { padding: 20px; }
-            .kit-display { height: 250px; }
+            .kit-wrapper { gap: 20px; }
+            .kit-box { min-width: 100%; padding: 15px; }
+            .kit-display { height: 300px; }
         }
     </style>
 </head>
@@ -424,13 +486,26 @@
 
     <section class="container" id="forma">
         <h2 class="section-title">FORMAMIZ</h2>
-        <div class="kit-box">
-            <div class="kit-display">
-                <a href="https://hizliresim.com/2gg7fvo" target="_blank">
-                    <img src="https://i.hizliresim.com/2gg7fvo.jpg" alt="Bildin FC Forma Ön" class="kit-img">
-                </a>
+        <div class="kit-wrapper">
+            
+            <div class="kit-box">
+                <div class="kit-box-inner">
+                    <div class="kit-display">
+                        <img src="https://i.hizliresim.com/2gg7fvo.jpg" alt="Bildin FC Forma Ön" class="kit-img">
+                    </div>
+                    <div class="kit-text">ZIRH <span class="accent">ÖN SUİT</span></div>
+                </div>
             </div>
-            <div class="kit-text">BİLDİN FC <span class="accent">2026</span> ZIRHI</div>
+
+            <div class="kit-box">
+                <div class="kit-box-inner">
+                    <div class="kit-display">
+                        <img src="https://i.hizliresim.com/77oy5vb.jpg" alt="Bildin FC Forma Arka" class="kit-img">
+                    </div>
+                    <div class="kit-text">ZIRH <span class="accent">ARKA SUİT</span></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -444,14 +519,18 @@
     </footer>
 
     <script>
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                if(card.classList.contains('active')) {
-                    card.classList.remove('active');
+        // Oyuncu Kartları ve Forma Kutularını Seçiyoruz
+        const elementsToClick = document.querySelectorAll('.card, .kit-box');
+        
+        elementsToClick.forEach(element => {
+            element.addEventListener('click', () => {
+                if(element.classList.contains('active')) {
+                    element.classList.remove('active');
                 } else {
-                    cards.forEach(c => c.classList.remove('active'));
-                    card.classList.add('active');
+                    // Sadece tıklanan büyüsün, diğer aktif olanlar küçülsün
+                    elementsToClick.forEach(el => el.classList.remove('active'));
+                    element.add('active'); // JavaScript hata vermemesi için classList.add kullanıyoruz
+                    element.classList.add('active');
                 }
             });
         });
