@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildin FC - Resmi Web Sitesi</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;0,800;1,700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Modern Renk Paleti ve Değişkenler */
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: #131a2c;
+            --primary: #1e56a0;
+            --accent: #00c9a7;
+            --text-light: #f4f6f9;
+            --text-gray: #a0aec0;
+            --gradient-blue: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Görseli buraya bağlayacaksınız */
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-style: italic;
+            background: linear-gradient(45deg, #fff, var(--text-gray));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, rgba(30, 86, 160, 0.2) 0%, rgba(11, 15, 25, 1) 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 0 40px rgba(30, 86, 160, 0.5);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(30, 86, 160, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 50px rgba(30, 86, 160, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 30px rgba(30, 86, 160, 0.4); }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            font-style: italic;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: linear-gradient(45deg, var(--primary), #3b82f6);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Match Section */
+        .match-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .team-logo-placeholder {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .match-details {
+            text-align: center;
+        }
+
+        .match-details .vs {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        /* Roster / Kadro */
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .player-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .player-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .player-img {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(to bottom, transparent, rgba(11, 15, 25, 0.7)), #1e293b;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .player-img i {
+            font-size: 5rem;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .player-info {
+            padding: 20px;
+        }
+
+        .player-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .player-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .player-position {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background: #070a10;
+            padding: 40px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .match-card { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo-area">
+            <!-- Logonuz hazır olduğunda src kısmına görsel adını yazın -->
+            <img src="Screenshot_20260610_200717_Instagram.jpg" alt="Bildin FC Logo" class="logo-img">
+            <span class="logo-text">Bildin FC</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#matches">Maçlar</a></li>
+            <li><a href="#roster">Kadro</a></li>
+            <li><a href="#club">Kulüp</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero / Giriş Alanı -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="Screenshot_20260610_200717_Instagram.jpg" alt="Bildin FC Büyük Logo" class="hero-logo">
+            <h1>BİLDİN FC</h1>
+            <p>Sahada Güç, Eğilmeyen Başlar. Yeni Nesil Futbolun Temsilcisi.</p>
+            <a href="#matches" class="btn">Gelecek Maçı Gör</a>
+        </div>
+    </section>
+
+    <!-- Maç Alanı -->
+    <section id="matches">
+        <h2 class="section-title">Gelecek Maç</h2>
+        <div class="match-card">
+            <div class="team">
+                <img src="Screenshot_20260610_200717_Instagram.jpg" alt="Bildin FC" style="width:60px; height:60px; border-radius:50%;">
+                <span>BİLDİN FC</span>
+            </div>
+            <div class="match-details">
+                <div class="vs">VS</div>
+                <div style="margin: 10px 0; font-size: 0.9rem; color: var(--text-gray);">14 Haziran Pazar - 21:00</div>
+                <div style="font-size: 0.8rem; background: rgba(30, 86, 160, 0.2); padding: 4px 10px; border-radius: 10px; color: #3b82f6;">Halı Saha Ligi</div>
+            </div>
+            <div class="team">
+                <div class="team-logo-placeholder"><i class="fa-solid fa-shield-halved"></i></div>
+                <span>RAKİP TAKIM</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kadro Alanı -->
+    <section id="roster">
+        <h2 class="section-title">TAKIM KADROSU</h2>
+        <div class="roster-grid">
+            
+            <!-- Oyuncu 1 -->
+            <div class="player-card">
+                <div class="player-img"><i class="fa-solid fa-user-running"></i></div>
+                <div class="player-info">
+                    <div class="player-number">#10</div>
+                    <div class="player-name">Ahmet Yılmaz</div>
+                    <div class="player-position">Forvet / Kaptan</div>
+                </div>
+            </div>
+
+            <!-- Oyuncu 2 -->
+            <div class="player-card">
+                <div class="player-img"><i class="fa-solid fa-user-running"></i></div>
+                <div class="player-info">
+                    <div class="player-number">#8</div>
+                    <div class="player-name">Mehmet Demir</div>
+                    <div class="player-position">Orta Saha</div>
+                </div>
+            </div>
+
+            <!-- Oyuncu 3 -->
+            <div class="player-card">
+                <div class="player-img"><i class="fa-solid fa-user-running"></i></div>
+                <div class="player-info">
+                    <div class="player-number">#4</div>
+                    <div class="player-name">Can Kaya</div>
+                    <div class="player-position">Defans</div>
+                </div>
+            </div>
+
+            <!-- Oyuncu 4 -->
+            <div class="player-card">
+                <div class="player-img"><i class="fa-solid fa-user-lock"></i></div>
+                <div class="player-info">
+                    <div class="player-number">#1</div>
+                    <div class="player-name">Gökhan Avcı</div>
+                    <div class="player-position">Kaleci</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2026 Bildin FC. Tüm Hakları Saklıdır.</p>
+        <p style="font-size: 0.75rem; margin-top: 5px; color: #4a5568;">Powered by Boğa Gücü ⚡</p>
+    </footer>
+
+</body>
+  </html>
