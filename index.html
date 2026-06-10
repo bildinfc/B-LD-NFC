@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bildin FC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Bildin FC | Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================
-           GENEL AYARLAR
+           GENEL AYARLAR & SİBER ARKA PLAN
            ========================================== */
         * {
             margin: 0;
@@ -19,172 +19,295 @@
         }
 
         body {
-            background-color: #030712;
+            background-color: #02050a;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 140px; /* Navbar için boşluk */
+            padding-top: 130px;
+            overflow-x: hidden;
+            /* Dinamik siber arka plan ışıkları */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.08) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
         }
 
         /* ==========================================
-           TAM ORTALANMIŞ PARLAYAN NAVBAR
+           ORTALANMIŞ PARLAYAN LOGO / NAVBAR
            ========================================== */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(3, 7, 18, 0.9);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
+            background: rgba(2, 5, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(0, 102, 255, 0.3);
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
             display: flex;
-            justify-content: center; /* İçeriği tam ortalar */
+            justify-content: center;
             align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
         }
 
         .logo-link {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 15px;
+            gap: 18px;
         }
 
         .site-logo {
-            height: 60px;
-            width: 60px;
+            height: 65px;
+            width: 65px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #0066ff;
-            box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+            border: 3px solid #0066ff;
+            box-shadow: 0 0 25px rgba(0, 102, 255, 0.8);
         }
 
         .logo-text {
             color: #ffffff;
             font-weight: 900;
-            font-size: 28px;
-            letter-spacing: 2px;
+            font-size: 32px;
+            letter-spacing: 3px;
         }
 
         .accent {
             color: #0066ff;
-            text-shadow: 0 0 15px rgba(0, 102, 255, 0.8);
+            text-shadow: 0 0 20px rgba(0, 102, 255, 1);
         }
 
         /* ==========================================
-           OYUNCU KARTLARI ALANI
+           TAKIM KULÜP GÖSTERGELERİ (STATS)
+           ========================================== */
+        .stats-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: inset 0 0 15px rgba(0, 102, 255, 0.05);
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #0066ff;
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        /* ==========================================
+           DEVAASA RGB OYUNCU KARTLARI
            ========================================== */
         .container {
             width: 100%;
             max-width: 1200px;
             padding: 0 20px;
-            margin-bottom: 80px;
         }
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Minimum genişliği büyüterek kartları devasa yaptık */
+            gap: 40px;
             padding: 20px 0;
         }
 
-        /* RGB Parlayan ve Büyüyen Kartlar */
+        /* Ana Kart Gövdesi */
         .card {
-            background: #0b1329;
-            border-radius: 20px;
-            padding: 40px 20px;
-            text-align: center;
+            background: #060d1f;
+            border-radius: 24px;
+            height: 320px; /* Kart yüksekliği arttırıldı */
             position: relative;
             cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
             overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Kartın arkasındaki gizli RGB dönme efekti */
+        /* 360 Derece Dönen RGB Şerit Animasyonu */
         .card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(#ff0000, #ff7700, #ffea00, #00ff00, #00ffff, #0022ff, #7500ff, #ff00c8, #ff0000);
-            animation: spin 4s linear infinite;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: conic-gradient(#0066ff, #00ffcc, #0022ff, #ffffff, #00ffcc, #0066ff);
+            animation: spin 3.5s linear infinite;
             opacity: 0;
             transition: opacity 0.4s;
             z-index: 1;
         }
 
-        /* Kartın iç siyah gövdesi (RGB çizgi gibi görünsün diye) */
+        /* Kartın İç Panel Alanı */
         .card-inner {
             position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            background: #0b1329;
-            border-radius: 17px;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            background: #060c1a;
+            border-radius: 20px;
             z-index: 2;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             transition: background 0.4s;
+            padding: 20px;
         }
 
-        /* TIKLANDIĞINDA VEYA ÜSTÜNE GELİNDİĞİNDE BÜYÜME VE RGB AKTİFLEŞME */
+        /* BÜYÜME VE RGB TETİKLEYİCİSİ */
         .card:hover, .card:focus, .card.active {
-            transform: scale(1.12); /* Kartı büyütür */
+            transform: scale(1.08) translateY(-10px); /* Kartı yukarı doğru büyüterek fırlatır */
             z-index: 10;
-            box-shadow: 0 0 35px rgba(0, 102, 255, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.4);
         }
 
         .card:hover::before, .card:focus::before, .card.active::before {
-            opacity: 1; /* RGB ışıkları yakar */
+            opacity: 1; /* RGB Işıkları canlandırır */
         }
 
         .card:hover .card-inner, .card:focus .card-inner, .card.active .card-inner {
-            background: #111a36; /* İç rengi biraz açar */
+            background: linear-gradient(135deg, #09132a 0%, #030814 100%);
         }
 
-        /* Kart İçeriği Yazı Tasarımları */
+        /* Kart İçi Yazı Boyutları (Büyütüldü) */
         .player-number {
-            font-size: 3.5rem;
+            font-size: 5.5rem; /* Dev numara */
             font-weight: 900;
             color: #ffffff;
             line-height: 1;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            transition: color 0.3s;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #ffffff 30%, rgba(255,255,255,0.05) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s;
         }
 
         .card:hover .player-number, .card.active .player-number {
-            color: #0066ff;
-            text-shadow: 0 0 15px rgba(0, 102, 255, 0.6);
+            background: linear-gradient(180deg, #00ffcc 0%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.6));
         }
 
         .player-name {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 2rem; /* Büyük isim yazı boyutu */
+            font-weight: 800;
             color: #ffffff;
-            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .player-badge {
+            font-size: 0.8rem;
+            color: #00ffcc;
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            background: rgba(0, 255, 204, 0.05);
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
-        /* RGB Animasyonu Dönüş Hızı */
+        /* ==========================================
+           PARLAYAN SOSYAL MEDYA BUTONLARI (FOOTER)
+           ========================================== */
+        .footer-social {
+            margin: 60px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-title {
+            font-size: 1.1rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.1);
+        }
+
+        /* Butonların üstüne gelince parlaması */
+        .social-btn:hover {
+            transform: translateY(-3px);
+            background: #0066ff;
+            border-color: #00ffcc;
+            box-shadow: 0 0 25px rgba(0, 102, 255, 0.6);
+        }
+
+        /* RGB Animasyon Dönüş Hızı */
         @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobil Ekran Düzenlemesi */
+        @media (max-width: 480px) {
+            .logo-text { font-size: 24px; }
+            .grid-container { grid-template-columns: 1fr; }
+            .card { height: 280px; }
+            .player-name { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGASYON (TAM ORTALI) -->
     <nav class="navbar">
         <a href="#" class="logo-link">
             <img src="https://instagram.fyei6-3.fna.fbcdn.net/v/t51.82787-19/684860698_17915959620365646_8987748871476407852_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fyei6-3.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gE1u3f_WSex_NC80tiOYiDWATJ463rjkUZs315nBsxWskkjx0RFOnUzb8d9kZapRcg&_nc_ohc=K24xuEEnn3QQ7kNvwFTnz6H&_nc_gid=-XF2wGtbv8N5gLUKruH_Aw&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af9-w8RKkqgHQEiQKIqqbdvjDIEsTLPpHNadNmm78hPZzw&oe=6A2F5A80&_nc_sid=8b3546" alt="Bildin FC Logo" class="site-logo">
@@ -192,54 +315,95 @@
         </a>
     </nav>
 
+    <!-- TAKIM KULÜP SAYAÇLARI -->
+    <div class="stats-container">
+        <div class="stat-box">
+            <div class="stat-value">6</div>
+            <div class="stat-label">Aktif Oyuncu</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">%100</div>
+            <div class="stat-label">Mücadele</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">Kadro Gücü</div>
+        </div>
+    </div>
+
+    <!-- DEVAASA OYUNCU KARTLARI ALANI -->
     <main class="container">
         <div class="grid-container">
             
+            <!-- 01 İshakso -->
             <div class="card" tabindex="0">
                 <div class="card-inner">
                     <div class="player-number">01</div>
                     <div class="player-name">İshakso</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
+            <!-- 03 Emin -->
             <div class="card" tabindex="0">
                 <div class="card-inner">
                     <div class="player-number">03</div>
                     <div class="player-name">Emin</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
+            <!-- 05 Emirhan -->
             <div class="card" tabindex="0">
                 <div class="card-inner">
                     <div class="player-number">05</div>
                     <div class="player-name">Emirhan</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
+            <!-- 09 Eray -->
             <div class="card" tabindex="0">
                 <div class="card-inner">
                     <div class="player-number">09</div>
                     <div class="player-name">Eray</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
+            <!-- 10 İhsan -->
             <div class="card" tabindex="0">
                 <div class="card-inner">
                     <div class="player-number">10</div>
                     <div class="player-name">İhsan</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
+            <!-- 22 Altay -->
             <div class="card" tabindex="0">
                 <div class="card-inner">
                     <div class="player-number">22</div>
                     <div class="player-name">Altay</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
         </div>
     </main>
 
+    <!-- SOSYAL MEDYA ALANI -->
+    <footer class="footer-social">
+        <div class="social-title">Bizi Takip Edin</div>
+        <div class="social-grid">
+            <!-- href="#" yazan yerlerdeki # işaretini silip kendi hesap linklerinizi yazabilirsiniz -->
+            <a href="#" target="_blank" class="social-btn">Instagram</a>
+            <a href="#" target="_blank" class="social-btn">TikTok</a>
+            <a href="#" target="_blank" class="social-btn">YouTube</a>
+        </div>
+    </footer>
+
+    <!-- Tıklama ve Dokunma Efekti Yönetimi -->
     <script>
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
