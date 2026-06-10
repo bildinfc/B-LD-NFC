@@ -356,94 +356,82 @@
 </head>
 <body>
 
-    <!-- MENÜLÜ ÜST NAVBAR ALANI -->
     <nav class="navbar">
         <a href="#" class="logo-link">
             <div class="site-logo-shield">BFC</div>
             <span class="logo-text">BİLDİN <span class="accent">FC</span></span>
         </a>
-        <!-- Tıklandığında İlgili Bölüme Gönderen Butonlar -->
         <div class="nav-links">
             <a href="#kadro" class="nav-btn">Kadromuz</a>
             <a href="#forma" class="nav-btn">Formamız</a>
         </div>
     </nav>
 
-    <!-- 1. BÖLÜM: KADROMUZ -->
     <main class="container" id="kadro">
         <h2 class="section-title">KADROMUZ</h2>
         <div class="grid-container">
             
-            <!-- 01 İshakso -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">01</div>
                     <div class="player-name">İshakso</div>
-                    <div class="player-badge">Kaleci</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
-            <!-- 03 Emin -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">03</div>
                     <div class="player-name">Emin</div>
-                    <div class="player-badge">Forvet</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
-            <!-- 05 Emirhan -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">05</div>
                     <div class="player-name">Emirhan</div>
-                    <div class="player-badge">Stoper</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
-            <!-- 09 Eray -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">09</div>
                     <div class="player-name">Eray</div>
-                    <div class="player-badge">Forvet</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
-            <!-- 10 İhsan -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">10</div>
                     <div class="player-name">İhsan</div>
-                    <div class="player-badge">Stoper</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
-            <!-- 22 Altay -->
             <div class="card">
                 <div class="card-inner">
                     <div class="player-number">22</div>
                     <div class="player-name">Altay</div>
-                    <div class="player-badge">Orta Saha</div>
+                    <div class="player-badge">Kadro</div>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <!-- 2. BÖLÜM: FORMAMIZ -->
     <section class="container" id="forma">
         <h2 class="section-title">FORMAMIZ</h2>
         <div class="kit-box">
             <div class="kit-display">
-                <!-- Forma resminizin linkini src="link" kısmına koyabilirsiniz. Şimdilik geçici bir logo simgesi duruyor -->
-                <span style="font-size: 5rem; filter: drop-shadow(0 0 10px #0066ff);">👕</span>
+                <img src="forma-on.png" alt="Bildin FC Forma Ön" class="kit-img">
             </div>
             <div class="kit-text">BİLDİN FC <span class="accent">2026</span> ZIRHI</div>
         </div>
     </section>
 
-    <!-- SOSYAL MEDYA -->
     <footer class="footer-social">
         <div class="social-title">Bizi Takip Edin</div>
         <div class="social-grid">
@@ -453,7 +441,6 @@
         </div>
     </footer>
 
-    <!-- Tıklama / Büyüme Scripti -->
     <script>
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
