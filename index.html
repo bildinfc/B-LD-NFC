@@ -3,481 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BİLDİN FC — Official Website</title>
-    <!-- Google Fonts: Space Grotesk & Syne for high-end modern athletic look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Bildin FC | Resmi Web Sitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --bg: #050811;
-            --surface: #0d1326;
-            --surface-glow: rgba(30, 144, 255, 0.15);
-            --primary: #1e90ff;
-            --primary-glow: #00bfff;
-            --text: #ffffff;
-            --text-muted: #64748b;
-        }
-
+        /* ==========================================
+           GENEL VE MODERN TASARIM AYARLARI
+           ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
 
-        /* Arka Plan Glow Efektleri */
-        .glow-bg-1 {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(30, 144, 255, 0.15) 0%, transparent 70%);
-            top: -100px;
-            right: -100px;
-            z-index: -1;
-            pointer-events: none;
+        body {
+            background-color: #0d0d11; /* Modern Gece Siyahı */
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        .glow-bg-2 {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
-            top: 50%;
-            left: -100px;
-            z-index: -1;
-            pointer-events: none;
+        /* ==========================================
+           NAVIGASYON (NAVBAR) & LOGO AYARLARI
+           ========================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 17, 0.85);
+            backdrop-filter: blur(10px); /* Arkadaki içeriği bulanıklaştıran modern efekt */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            padding: 15px 0;
         }
 
-        /* Header / Nav */
-        header {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 8%;
-            background: rgba(5, 8, 17, 0.75);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 0 20px;
         }
 
-        .brand {
+        /* LOGONUN EKRANDA DÜZGÜN GÖRÜNMESİNİ SAĞLAYAN KISIM */
+        .logo-link {
             display: flex;
             align-items: center;
-            gap: 15px;
             text-decoration: none;
+            gap: 12px;
         }
 
-        .brand img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 15px rgba(30, 144, 255, 0.6);
-            object-fit: cover;
+        .site-logo {
+            height: 50px; /* Logonun ekrandaki yüksekliği */
+            width: auto;  /* En-boy oranını korur, logoyu ezmez */
+            object-fit: contain;
+            /* Logonun arkasında hafif neon bir parlama efekti yaratır */
+            filter: drop-shadow(0px 0px 8px rgba(255, 51, 102, 0.3)); 
         }
 
-        .brand span {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 1.6rem;
+        .logo-text {
             color: #fff;
+            font-weight: 900;
+            font-size: 24px;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        nav ul {
+        .accent {
+            color: #ff3366; /* Takımımızın vurgu rengi (Neon Pembe/Kırmızı) */
+        }
+
+        /* Menü Linkleri */
+        .nav-menu {
             display: flex;
             list-style: none;
-            gap: 35px;
-        }
-
-        nav ul a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        nav ul a:hover, nav ul a.active {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 20px 60px 20px;
-            position: relative;
-        }
-
-        .hero-logo-wrapper {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .hero-logo-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 260px;
-            height: 260px;
-            background: radial-gradient(circle, rgba(30, 144, 255, 0.6) 0%, transparent 70%);
-            z-index: 1;
-            pointer-events: none;
-            animation: pulse-glow 4s infinite ease-in-out;
-        }
-
-        .hero-logo {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 50px rgba(30, 144, 255, 0.5);
-            animation: float 6s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.15); }
-        }
-
-        .hero h1 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 5.5rem;
-            line-height: 0.9;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #ffffff 30%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(30, 144, 255, 0.3);
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .cta-btn {
-            padding: 16px 40px;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-        }
-
-        .cta-btn:hover {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: 0 0 30px rgba(30, 144, 255, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* Section Global */
-        section:not(.hero) {
-            padding: 100px 8%;
-            position: relative;
-        }
-
-        .section-header {
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        .section-header h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: 3rem;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .section-header p {
-            color: var(--primary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            margin-top: 5px;
-        }
-
-        /* Squad Section */
-        .squad-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
         }
 
-        .squad-card {
-            background: rgba(13, 19, 38, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .squad-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(30, 144, 255, 0.3);
-            background: rgba(13, 19, 38, 0.8);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(30, 144, 255, 0.15);
-        }
-
-        .player-visual {
-            height: 220px;
-            background: linear-gradient(180deg, rgba(30, 144, 255, 0.05), rgba(5, 8, 17, 0.8));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .player-visual i {
-            font-size: 4.5rem;
-            color: rgba(30, 144, 255, 0.15);
-            transition: all 0.4s ease;
-        }
-
-        .squad-card:hover .player-visual i {
-            color: rgba(30, 144, 255, 0.4);
-            scale: 1.1;
-        }
-
-        .player-details {
-            padding: 25px;
-            position: relative;
-            text-align: center;
-        }
-
-        .player-number {
-            position: absolute;
-            top: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Syne', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.08);
-            transition: all 0.4s ease;
-        }
-
-        .squad-card:hover .player-number {
-            color: rgba(30, 144, 255, 0.25);
-            top: -40px;
-        }
-
-        .player-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            letter-spacing: -0.3px;
-        }
-
-        .player-role {
-            font-size: 0.85rem;
-            color: var(--primary-glow);
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px 8% 40px 8%;
-            background: #03050a;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            text-align: center;
-        }
-
-        .footer-socials {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .footer-socials a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 1.1rem;
+        .nav-menu a {
+            color: #a0a0aa;
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .footer-socials a:hover {
+        .nav-menu a:hover {
             color: #fff;
-            background: var(--primary);
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
+        }
+
+        /* ==========================================
+           HERO (GİRİŞ) ALANI TASARIMI
+           ========================================== */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            /* Modern, teknolojik bir arka plan ışığı efekti */
+            background: radial-gradient(circle at 80% 20%, rgba(255, 51, 102, 0.15) 0%, transparent 50%), 
+                        radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        /* Başlıktaki renk geçişli (Gradient) yazı */
+        .gradient-text {
+            background: linear-gradient(45deg, #ff3366, #ff6633);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #a0a0aa;
+            max-width: 550px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Çağrı Butonu (CTA) */
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(45deg, #ff3366, #ff6633);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-btn:hover {
             transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(255, 51, 102, 0.5);
         }
 
-        footer p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-
-        /* Responsive Design */
+        /* Mobil Uyum (Responsive) */
         @media (max-width: 768px) {
-            nav { display: none; }
-            header { justify-content: center; }
-            section:not(.hero) { padding: 80px 5%; }
-            .hero h1 { font-size: 3.5rem; }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .nav-menu {
+                display: none; /* Mobil menü tasarımı daha sonra eklenebilir */
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="glow-bg-1"></div>
-    <div class="glow-bg-2"></div>
-
-    <!-- Header Navigation -->
-    <header>
-        <a href="#" class="brand">
-            <img src="https://www.save-free.com/cdn/https://instagram.fchm1-1.fna.fbcdn.net/v/t51.82787-19/684860698_17915959620365646_8987748871476407852_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fchm1-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gFSJlhnoTZAxwuTUvyDlKcssV9CLrdckEIw4mzMG8rr0C0z5hb1GuvE7myexhp7aBOZ1AzmbmPAhbW86ActWSP6&_nc_ohc=K24xuEEnn3QQ7kNvwEWpduX&_nc_gid=4e6wu0neyigBUpB-CpFIDw&edm=AEF8tYYBAAAA&ccb=7-5&oh=00_Af8yTGbT1NYZFmAofikdsT3I9So4lnpxY_cuNVQDVDU2CQ&oe=6A2F5A80&_nc_sid=1e20d2" alt="Bildin FC">
-            <span>BİLDİN FC</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Ana Sayfa</a></li>
-                <li><a href="#squad">Kadro</a></li>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-link">
+                <img src="logo.png" alt="Bildin FC Logo" class="site-logo">
+                <span class="logo-text">BİLDİN <span class="accent">FC</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#team">Takımımız</a></li>
+                <li><a href="#matches">Maçlar</a></li>
+                <li><a href="#contact">İletişim</a></li>
             </ul>
-        </nav>
+        </div>
+    </nav>
+
+    <header class="hero-section" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">SAHANIN <br><span class="gradient-text">YENİ KRALLARI</span></h1>
+            <p class="hero-subtitle">Bildin FC ruhuyla tanışın. Sahada basmadık yer bırakmayanların, son düdüğe kadar pes etmeyenlerin takımı.</p>
+            <a href="#matches" class="cta-btn">Son Maçları Gör</a>
+        </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-logo-wrapper">
-            <div class="hero-logo-glow"></div>
-            <img src="https://www.save-free.com/cdn/https://instagram.fchm1-1.fna.fbcdn.net/v/t51.82787-19/684860698_17915959620365646_8987748871476407852_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fchm1-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gFSJlhnoTZAxwuTUvyDlKcssV9CLrdckEIw4mzMG8rr0C0z5hb1GuvE7myexhp7aBOZ1AzmbmPAhbW86ActWSP6&_nc_ohc=K24xuEEnn3QQ7kNvwEWpduX&_nc_gid=4e6wu0neyigBUpB-CpFIDw&edm=AEF8tYYBAAAA&ccb=7-5&oh=00_Af8yTGbT1NYZFmAofikdsT3I9So4lnpxY_cuNVQDVDU2CQ&oe=6A2F5A80&_nc_sid=1e20d2" alt="Bildin FC Büyük Logo" class="hero-logo">
-        </div>
-        <h1>BİLDİN FC</h1>
-        <p>Sahada taviz vermeyen güç, saf dominasyon. Yeni nesil futbol ekolü.</p>
-        <a href="#squad" class="cta-btn">Takımı Gör</a>
-    </section>
-
-    <!-- Squad Section -->
-    <section id="squad">
-        <div class="section-header">
-            <p>ELİT KADRO</p>
-            <h2>OYUNCULAR</h2>
-        </div>
-
-        <div class="squad-grid">
-            <!-- Player 1 -->
-            <div class="squad-card">
-                <div class="player-visual">
-                    <i class="fa-solid fa-user-bolt"></i>
-                </div>
-                <div class="player-details">
-                    <div class="player-number">10</div>
-                    <div class="player-name">Ahmet Yılmaz</div>
-                    <div class="player-role">Forvet / Kaptan</div>
-                </div>
-            </div>
-
-            <!-- Player 2 -->
-            <div class="squad-card">
-                <div class="player-visual">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
-                <div class="player-details">
-                    <div class="player-number">08</div>
-                    <div class="player-name">Mehmet Demir</div>
-                    <div class="player-role">Orta Saha</div>
-                </div>
-            </div>
-
-            <!-- Player 3 -->
-            <div class="squad-card">
-                <div class="player-visual">
-                    <i class="fa-solid fa-user-lock"></i>
-                </div>
-                <div class="player-details">
-                    <div class="player-number">04</div>
-                    <div class="player-name">Can Kaya</div>
-                    <div class="player-role">Defans</div>
-                </div>
-            </div>
-
-            <!-- Player 4 -->
-            <div class="squad-card">
-                <div class="player-visual">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="player-details">
-                    <div class="player-number">01</div>
-                    <div class="player-name">Gökhan Avcı</div>
-                    <div class="player-role">Kaleci</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-socials">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        <p>&copy; 2026 BİLDİN FC. Tüm Hakları Saklıdır.</p>
-    </footer>
 
 </body>
 </html>
