@@ -676,7 +676,7 @@
         <div class="memory-box">
             <div class="memory-box-inner">
                 <div class="memory-display">
-                    <img src="https://i.hizliresim.com/46ontk8.jpg" alt="Bildin FC Anı Fotoğrafı" class="memory-img">
+                    <a href="https://hizliresim.com/46ontk8"><img src="https://i.hizliresim.com/46ontk8.jpg" alt="ff" class="memory-img"></a>
                 </div>
             </div>
         </div>
@@ -717,7 +717,6 @@
     </footer>
 
     <script>
-        // Kartlar, formalar ve yeni anı kutusu için tıklama efekti aktif edildi
         const elementsToClick = document.querySelectorAll('.card, .kit-box, .memory-box');
         
         elementsToClick.forEach(element => {
@@ -726,6 +725,7 @@
                     element.classList.remove('active');
                 } else {
                     elementsToClick.forEach(el => el.classList.remove('active'));
+                    element.add('active');
                     element.classList.add('active');
                 }
             });
