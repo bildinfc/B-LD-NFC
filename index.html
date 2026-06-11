@@ -363,7 +363,7 @@
         }
 
         .memory-box.active {
-            transform: scale(1.08);
+            transform: scale(1.12); /* Kartlarla eşit oranda büyümesi sağlandı */
             z-index: 10;
             box-shadow: 0 0 40px rgba(0, 255, 204, 0.6), 0 0 70px rgba(0, 102, 255, 0.4);
             border-color: transparent;
@@ -670,13 +670,13 @@
         </div>
     </section>
 
-    <!-- ANI KÖŞESİ BÖLÜMÜ -->
+    <!-- ANI KÖŞESİ BÖLÜMÜ (YÖNLENDİRME KALDIRILDI) -->
     <section class="container" id="ani-kosesi">
         <h2 class="section-title">ANI KÖŞESİ</h2>
         <div class="memory-box">
             <div class="memory-box-inner">
                 <div class="memory-display">
-                    <a href="https://hizliresim.com/46ontk8"><img src="https://i.hizliresim.com/46ontk8.jpg" alt="ff" class="memory-img"></a>
+                    <img src="https://i.hizliresim.com/46ontk8.jpg" alt="Bildin FC Anı Fotoğrafı" class="memory-img">
                 </div>
             </div>
         </div>
@@ -725,7 +725,6 @@
                     element.classList.remove('active');
                 } else {
                     elementsToClick.forEach(el => el.classList.remove('active'));
-                    element.add('active');
                     element.classList.add('active');
                 }
             });
